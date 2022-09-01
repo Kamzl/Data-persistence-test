@@ -60,9 +60,9 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.velocity = Vector3.zero;
             canJump = true;
             spawnManager.SpawnPlatforms((int)(collision.transform.position.z / 10) + 7);
-            if (gameManager.isGameActive)
+            if (gameManager.isGameActive && playerTransform.position.z > 2)
             {
-                gameManager.IncrementScore((spawnManager.lilypadCounter - 6) * 10);
+                gameManager.IncrementScore((int)playerTransform.position.z / 10 * 10 + 10);
             }
         }
         else if (collision.gameObject.CompareTag("Enemy"))

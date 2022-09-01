@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public GameObject backgroundCanvas;
     public TextMeshProUGUI scoreCount;
 
-    public Button startButton;
     public Button restartButton;
 
     public bool isGameActive;
@@ -20,8 +19,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        restartButton.onClick.AddListener(RestartGame);
-        startButton.onClick.AddListener(StartGame);
+        
     }
 
     // Update is called once per frame
@@ -30,24 +28,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void StartGame()
-    {
-        title.SetActive(false);
-        backgroundCanvas.SetActive(false);
-        scoreCount.gameObject.SetActive(true);
-        isGameActive = true;
-    }
-
-    private void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void GameOver()
     {
-        gameOver.SetActive(true);
-        backgroundCanvas.gameObject.SetActive(true);
-        isGameActive = false;
+        MainManager.instance.SetHighScore(score);
+        SceneManager.LoadScene(0);
     }
 
     public void IncrementScore(int score)

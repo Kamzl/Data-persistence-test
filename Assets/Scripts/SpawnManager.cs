@@ -31,8 +31,8 @@ public class SpawnManager : MonoBehaviour
         while(maxPlatforms > lilypadCounter)
         {
             float lilypadRangeX = 7.0f;
-            float minLilypadRange = lilypadCounter * 10 - 5;
-            float maxLilypadRange = lilypadCounter * 10;
+            float minLilypadRange = lilypadCounter * 10 - 4;
+            float maxLilypadRange = lilypadCounter * 10 - 8;
             Vector3 LilypadPosition = new Vector3(Random.Range(-lilypadRangeX, lilypadRangeX), 0, Random.Range(minLilypadRange, maxLilypadRange));
             Instantiate(lilypads, LilypadPosition, lilypads.transform.rotation);
             Vector3 EnemyLilypadPosition = new Vector3(Random.Range(-lilypadRangeX, lilypadRangeX), 0, Random.Range(minLilypadRange, maxLilypadRange));
